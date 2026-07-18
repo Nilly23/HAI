@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-muted: #a3a3a3;
+  --color-panel: #0a0a0a;
+  --color-panel-2: #111111;
+  --color-border: #1f1f1f;
+  --color-border-gold: #2a2418;
+  --color-gold: #D4AF37;
+  --color-gold-soft: #b8932c;
+  --color-gold-bright: #f0cc55;
+  --color-gold-foreground: #0a0a0a;
+  --font-display: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", "Avenir Next", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--color-background);
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #000000;
+}
+
+/* Custom scrollbar for the luxury aesthetic */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2a2418 0%, #D4AF37 100%);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Display font fallback */
+.font-display {
+  font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* Subtle animated grain texture */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #D4AF37 0%,
+    #f0cc55 25%,
+    #D4AF37 50%,
+    #b8932c 75%,
+    #D4AF37 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #D4AF37 50%,
+    transparent 100%
+  );
+}
+
+/* Subtle hover lift */
+.lift {
+  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+.lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(212, 175, 55, 0.08);
+}
